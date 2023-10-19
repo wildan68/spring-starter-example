@@ -77,7 +77,7 @@ class CustomControllerAdvice {
 
     // fallback method
     @ExceptionHandler(Exception.class) // exception handled
-    public ResponseEntity handleExceptions(
+    public ResponseEntity<ErrorResponse> handleExceptions(
         Exception e
     ) {
         // ... potential custom logic
@@ -88,13 +88,12 @@ class CustomControllerAdvice {
         StringWriter stringWriter = new StringWriter();
         PrintWriter printWriter = new PrintWriter(stringWriter);
         e.printStackTrace(printWriter);
-        String stackTrace = stringWriter.toString();
+        // String stackTrace = stringWriter.toString();
 
         return new ResponseEntity<>(
             new ErrorResponse(
                 status,
-                e.getMessage(),
-                stackTrace // specifying the stack trace in case of 500
+                e.getMessage()
             ),
             status
         );

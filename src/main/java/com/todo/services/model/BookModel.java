@@ -1,31 +1,17 @@
 package com.todo.services.model;
+import lombok.Getter;
+import lombok.Setter;
 
 public class BookModel {
+    @Getter
+    @Setter
     private String title;
+
+    @Getter
+    @Setter
     private String author;
+
+    @Getter
+    @Setter
     private String description;
-
-    public void setTitle (String title) {
-        this.title = title;
-    }
-
-    public String getTitle () {
-        return this.title;
-    }
-
-    public void setAuthor (String author) {
-        this.author = author;
-    }
-
-    public String getAuthor () {
-        return this.author;
-    }
-
-    public void setDescription (String description) {
-        this.description = description;
-    }
-
-    public String getDescription () {
-        return this.description;
-    }
 }

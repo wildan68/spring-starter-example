@@ -1,7 +1,18 @@
 package com.todo.services.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 public class ResponseModel {
-    public String message;
-    public int error;
-    public Object data;
+    @Getter
+    @Setter
+    private String message;
+
+    @Getter
+    @Setter
+    private int error;
+
+    @Getter
+    @Setter
+    private Object data;
 }

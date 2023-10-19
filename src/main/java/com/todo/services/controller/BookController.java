@@ -7,28 +7,18 @@ import com.todo.services.model.ResponseModel;
 
 public class BookController {    
     ResponseModel response = new ResponseModel();
+    ResponseController responseController = new ResponseController();
+
     public ArrayList<BookModel> books = new ArrayList<BookModel>();
 
     public ResponseModel getAllBooks() {
-        response.message = "Books get successfully";
-        response.error = 0;
-        response.data = books;
-
-        return response;
+        return responseController.setResponse("Book get successfully", 0, books);
     }
 
     public ResponseModel addBook(BookModel book) {
-        if (book.getTitle().isEmpty() || book.getAuthor().isEmpty() || book.getDescription().isEmpty()) {
-            response.message = "Please fill all the fields";
-            response.error = 1;
-            response.data = null;
-        } else {
-            books.add(book);
-            response.message = "Book added successfully";
-            response.error = 0;
-            response.data = book;
-        }
+        System.out.println("book: " + books);
+        books.add(book);
 
-        return response;
+        return responseController.setResponse("Book added successfully", 0, book);
     }
 }
